@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>  </head>
+<body>
+    <p>
+        1. Crear un algoritmo que muestre la frase “Hola Mundo” <br>
+        2. Crear un algoritmo que salude al nombre de una persona<br>
+        3. Crear un algoritmo que sume 2 números<br>
+        4. Crear un algoritmo que, al ingresar la edad, imprima si la persona es mayor o menor de edad<br>
+        5. Crear un algoritmo que muestre un listado del 1 al 100<br>
+        6. Crear un algoritmo que muestre un listado del 1 al n<br>
+        7. Crear un algoritmo que convierta el peso de libras a kilogramos y gramos<br>
+        8. Crear un algoritmo que transforme una temperatura N, se asigne la escala de temperatura<br>
+        (Celsius, Fahrenheit, kelvin) y al final imprima los resultados de las 3 escalas de temperatura.<br>
+        9. Crear un algoritmo que calcule la definitiva final de una asignatura de la FESC (debe ingresar <br>
+        primer previo, segundo previo, tercera nota, evaluación final)<br>
+        10. Crear un algoritmo que al solicitar el ingreso de N notas, me permita ingresar cada nota y<br>
+        después del bucle calcule el promedio, este algoritmo al final debe imprimir el promedio y <br>
+        equivalencia del porcentaje de tercera nota en la FESC
+    </p>
+    <script>
+        function hola_mundo(){
+            let saludo = "hola mundo"
+            console.log(saludo);
+        }
+        function saludo(persona){
+            let saludo="buenos dias"
+            console.log(saludo," ",persona)
+        }
+        function sumar_numeros(numero1,numero2){
+            let suma 
+            suma = numero1 + numero2
+            console.log(suma)
+        }
+        function mayor_edad(edad){
+            let resultado 
+            if(edad>=18){
+                console.log("eres mayor de edad")
+            }else{
+                console.log("eres menor de edad")
+            }
+        }
+        function lista1_100(){
+            for(let i= 1 ; i <= 100; i++){
+                console.log(i);
+            }
+        }
+        function lista_hasta(numero){
+            for(let i = 1 ; i<= numero; i++){
+                console.log(i)
+            }
+        }
+        function libras_kilogramos(libra){
+            let resultado = libra * 0.454
+            let gramos = libra * 453.59
+            console.log(libra," libras en kilogramos es ", resultado, "kg y en gramos ",gramos)
+        }        
+        function convertTemp(n, escala) {
+            let f , k , c ;
+            if (escala !== "Celsius" && escala !== "Fahrenheit" && escala !== "Kelvin"  ) {
+            console.log("Ingresa bien los datos");
+            }
+
+            if (escala === "Celsius") {
+                
+                f = n * 1.8 + 32;
+                k = n + 273.15 ;
+                console.log("temperatura en grados Fahrenheit : ",f,"  y en grados Kelvin : ",k)
+
+            } else if (escala === "Fahrenheit") {
+
+                c = (n - 32) / 1.8 ;
+                k = 5/9 ( n - 32) + 273.15 ;
+                console.log("temperatura en grados Celsius : ",c,"  y en grados Kelvin : ",k)
+
+            } else {
+               
+                c = n - 273.15
+                f = 1.8(n - 273.15) + 32 ;
+                console.log("temperatura en grados Celsius : ",c,"  y en grados Fahrenheit : ",f)
+            }
+        }
+        function nota_final(n1,n2,n3,n4){
+            let suma 
+            suma = n1 + n2 + n3 + n4
+            let promedio = (suma/4)
+            console.log("el promedio de la asignatura fue ",promedio)
+        }
+        function prom_notas(){
+            let i = 1 , nota,suma = 0,not3,c=0, equi= 0
+            while (i>0){
+                i++;
+                nota = parseFloat(prompt("ingresa la nota  >>> cuando no quieres ingresar mas notas ingrea un numero negatico"))
+                if (nota >= 0) {
+                    suma += nota
+                    c++
+                }else{i = -2}
+            }
+            not3 = (suma/c)
+            equi = (not3 * 0.2)
+            console.log("el promedio su 3 nota fue de ",not3,"y aquivale al ",equi)
+        }
+        console.log("ingresa el numero del ejercicio a realizar");
+        let num = prompt("ingresa el numero")
+        console.log("ejercicio #",num)
+        switch(num){
+            case "1" :  hola_mundo()
+            break;
+
+            case "2" : 
+            let nom = prompt("ingresa tu nombre")
+            saludo(nom)
+            break;
+
+            case "3" : 
+            let n1 = parseFloat(prompt("ingresa el numero 1"))
+            let n2 = parseFloat(prompt("ingresa el numero 2"))
+            sumar_numeros(n1,n2)
+            break;
+
+            case "4" : 
+            let edad = prompt("ingresa tu edad")
+            mayor_edad(edad)
+            break;
+
+            case "5" : 
+            lista1_100()
+            break;
+
+            case "6" : 
+            let  fin = prompt("hasta que numero quieres ver la lista")
+            lista_hasta(fin)
+            break;
+
+            case "7" : 
+            let libra = parseFloat(prompt("ingresa el numero de libras"))
+            libras_kilogramos(libra)
+            break;
+
+            case "8" : 
+            let tem = parseFloat(prompt("ingresa la temperatura"))
+            let esc = prompt("ingresa la escala")
+            convertTemp(tem,esc)
+            break;
+
+            case "9" : 
+            let nt1 = parseFloat(prompt("ingresa la nota 1 en decimal"))
+            let nt2 = parseFloat(prompt("ingresa la nota 2 en decimal"))
+            let nt3 = parseFloat(prompt("ingresa la nota 3 en decimal"))
+            let ex = parseFloat(prompt("ingresa la nota del examen final en decimal"))
+            
+            nota_final(nt1,nt2,nt3,ex)
+            break;
+
+            case "10" : 
+            prom_notas();
+            break;
+
+            default:
+            console.log("solo hay 10 ejercicios , ingresa bien el numero")
+        }  
+    </script>
+</body>
+</html>
